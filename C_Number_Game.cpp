@@ -50,39 +50,60 @@ void print(vc &A)
 
 void solve()
 {
-  int n, ct = 0, x = 1;
-  bool a = true;
+  int n, ans = -1;
   cin >> n;
-  int v[n];
+  vc v1;
   FOR(i, n)
-  cin >> v[i];
-  int l = log2(n);
-
-  for (int j = 0; j < l; j++)
   {
-    x *= 2;
-    for (int i = 0; i < n; i += x)
-    {
-      if (abs(v[i] - v[i + 1]) != 1 && a)
-      {
-        cout << -1 << nl;
-        return;
-      }
+    int x;
+    cin >> x;
+    v1.pb(x);
+  }
+  sort(all(v1));
 
-      int y = x / 2;
-      if (v[i] > v[i + y])
+  if (n == 1)
+  {
+    cout << 1 << nl;
+    return;
+  }
+
+  bool same = true;
+  for (int i = 0; i < n - 1; i++)
+  {
+    if (v1[i] != v1[i + 1])
+      same = false;
+  }
+
+  if (same)
+  {
+    cout << 0 << nl;
+    return;
+  }
+
+  FOR(k, n)
+  {
+    vc v = v1;
+    int ct = 0;
+    for (int i = 1; i <= k; i++)
+    {
+      if (v[len(v) - 1] <= k - i + 1)
       {
-        v[i] = v[i] + v[i + y];
+        v.pop_back();
         ct++;
+        if (len(v) == 0)
+          break;
       }
       else
-        v[i] = v[i] + v[i + y];
-
-      a = false;
+      {
+        ans = max(ans, ct);
+        break;
+      }
+      v[i] += k - i + 1;
+      // print(v);
     }
   }
-  // cout << v[0] << nl;
-  cout << ct << nl;
+  cout << ans + 1 << nl;
+  // cout << nl;
 }
 
 int32_t main()
