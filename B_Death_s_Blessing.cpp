@@ -50,22 +50,21 @@ void print(vc &A)
 
 void solve()
 {
-  int n, m = 0, suma = 0, sumb = 0;
+  int n, x, y, M = 0, ans = 0;
   cin >> n;
-  vc a(n), b(n);
   FOR(i, n)
   {
-    cin >> a[i];
-    suma += a[i];
+    cin >> x;
+    ans += x;
   }
   FOR(i, n)
   {
-    cin >> b[i];
-    m = max(b[i], m);
-    sumb += b[i];
+    cin >> y;
+    M = max(y, M);
+    ans += y;
   }
 
-  cout << suma + sumb - m << nl;
+  cout << ans - M << nl;
 }
 
 int32_t main()
