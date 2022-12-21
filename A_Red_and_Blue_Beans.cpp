@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define nl endl
+typedef long long ll;
+const int MOD = 1e9 + 7;
+
+void solve(int T) {
+  int r, b, d;
+  cin >> r >> b >> d;
+  if (r > b)
+    swap(r, b);
+  bool ans = true;
+  if (b > 1LL * r * (d + 1))
+    ans = false;
+  cout << (ans ? "YES" : "NO") << nl;
+}
+
+int main() {
+  // cout << setprecision(2) << fixed;
+  ios_base ::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+  int _, T;
+  cin >> _;
+  for (int i = 1; i <= _; ++i)
+    solve(T);
+  return 0;
+}
