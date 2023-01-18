@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define nl endl
+typedef long long ll;
+const int MOD = 1e9 + 7;
+
+void solve(int T) {
+  int arr[2][2], ct = 0;
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      cin >> arr[i][j];
+      ct += arr[i][j];
+    }
+  }
+
+  cout << (ct == 0 ? 0 : (ct == 4 ? 2 : 1)) << nl;
+}
+
+int main() {
+  // cout << setprecision(2) << fixed;
+  ios_base ::sync_with_stdio(false);
+  cin.tie(0);
+  cout.tie(0);
+  int _, T;
+  cin >> _;
+  for (int i = 1; i <= _; ++i)
+    solve(T);
+  return 0;
+}
