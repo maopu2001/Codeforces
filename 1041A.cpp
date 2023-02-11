@@ -6,16 +6,14 @@ typedef long long ll;
 const int MOD = 1e9 + 7;
 
 void solve(int T) {
-  int n;
+  int n, m = INT_MAX, M = 0;
   cin >> n;
   vector<int> v(n);
   for (int i = 0; i < n; i++) {
     cin >> v[i];
+    m = min(m, v[i]), M = max(M, v[i]);
   }
-  cout << (*max_element(v.begin(), v.end()) -
-           *min_element(v.begin(), v.end())) -
-              n + 1
-       << nl;
+  cout << M - m - n + 1 << nl;
 }
 
 int main() {
