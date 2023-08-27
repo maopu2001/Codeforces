@@ -22,9 +22,6 @@ void solve(int T) {
       b.push_back(i);
     }
   }
-  for (int i : b)
-    cout << i << " ";
-  cout << nl;
 
   bool meow = true;
   for (int i = 1; i <= n; i++) {
